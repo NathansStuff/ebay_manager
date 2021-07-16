@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getDvds } from '../../actions/dvds';
+import { getDvds, deleteDvd } from '../../actions/dvds';
 
 export class Dvds extends Component {
   static propTypes = {
@@ -32,7 +32,12 @@ export class Dvds extends Component {
                 <td>{dvd.barcode}</td>
                 <td>{dvd.title}</td>
                 <td>
-                  <button className='btn btn-danger btn-sm'>DELETE</button>
+                  <button
+                    onClick={this.props.deleteDvd.bind(this, dvd.id)}
+                    className='btn btn-danger btn-sm'
+                  >
+                    DELETE
+                  </button>
                 </td>
               </tr>
             ))}
@@ -47,4 +52,7 @@ const mapStateToProps = state => ({
   dvds: state.dvds.dvds,
 });
 
-export default connect(mapStateToProps, { getDvds })(Dvds);
+export default connect(mapStateToProps, {
+  getDvds,
+  deleteDvd,
+})(Dvds);

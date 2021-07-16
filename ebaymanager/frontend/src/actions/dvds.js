@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_DVDS } from './types';
+import { GET_DVDS, DELETE_DVD } from './types';
 
 // GET DVDS
 export const getDvds = () => dispatch => {
@@ -15,13 +15,13 @@ export const getDvds = () => dispatch => {
 };
 
 // DELETE DVDS
-export const deleteDvds = (id) => dispatch => {
+export const deleteDvd = id => dispatch => {
   axios
-    .get('/api/dvds/')
+    .delete(`/api/dvds/${id}/`)
     .then(res => {
       dispatch({
-        type: GET_DVDS,
-        payload: res.data,
+        type: DELETE_DVD,
+        payload: id,
       });
     })
     .catch(err => console.log(err));
