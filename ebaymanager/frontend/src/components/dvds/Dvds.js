@@ -6,6 +6,8 @@ import { getDvds, deleteDvd } from '../../actions/dvds';
 export class Dvds extends Component {
   static propTypes = {
     dvds: PropTypes.array.isRequired,
+    getDvds: PropTypes.func.isRequired,
+    deleteDvd: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
