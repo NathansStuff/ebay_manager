@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { addDvd } from '../../actions/dvds';
 
 export class form extends Component {
-  state = {
+  EMPTY_STATE = {
     barcode: '',
     title: '',
   };
+
+  state = EMPTY_STATE;
 
   static propTypes = {
     addDvd: PropTypes.func.isRequired,
@@ -20,6 +22,7 @@ export class form extends Component {
     const { barcode, title } = this.state;
     const dvd = { barcode, title };
     this.props.addDvd(dvd);
+    this.setState(this.EMPTY_STATE);
   };
 
   render() {

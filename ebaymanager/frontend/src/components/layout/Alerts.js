@@ -6,14 +6,20 @@ import PropTypes from 'prop-types';
 export class Alerts extends Component {
   static propTypes = {
     error: PropTypes.object.isRequired,
+    message: PropTypes.object.isRequired,
   };
 
   componentDidUpdate(prevProps) {
-    const { error, alert } = this.props;
+    const { error, alert, message } = this.props;
     if (error !== prevProps.error) {
       if (error.msg.barcode)
         alert.error(`Barcode: ${error.msg.barcode.join()}`);
       if (error.msg.title) alert.error(`Title: ${error.msg.title.join()}`);
+    }
+
+    if (message !== prevProps.message) {
+      if (message.dvdDeleted) alert.success(message.dvdDeleted);
+      if (message.dvdAdded) alert.success(message.dvdAdded);
     }
   }
   render() {
@@ -23,6 +29,7 @@ export class Alerts extends Component {
 
 const mapStateToProps = state => ({
   error: state.errors,
+  message: state.messages,
 });
 
 export default connect(mapStateToProps)(withAlert()(Alerts));
