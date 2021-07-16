@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./ebaymanager/frontend/src/index.js -o ./ebaymanager/frontend/static/frontend/",
-    "build": "webpack --mode development ./ebaymanager/frontend/src/index.js --output ./ebaymanager/frontend/static/frontend/src/main.js"
+    "dev": "webpack --mode development --watch ./ebaymanager/frontend/src/index.js -o ./ebaymanager/frontend/static/frontend/",
+    "build": "webpack --mode production --watch ./ebaymanager/frontend/src/index.js -o ./ebaymanager/frontend/static/frontend/"
   },
   "repository": {
     "type": "git",
