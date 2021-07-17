@@ -11,12 +11,14 @@ import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 import store from '../store';
+import { loadUser } from '../actions/auth';
 
 import Header from './layout/Header';
 import Dashboard from './dvds/Dashboard';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
+import PrivateRoute from './common/PrivateRoute';
 
 //Alert Options
 const alertOptions = {
@@ -25,6 +27,10 @@ const alertOptions = {
 };
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -35,7 +41,7 @@ class App extends Component {
               <Alerts />
               <div className='container'>
                 <Switch>
-                  <Route exact path='/' component={Dashboard} />
+                  <PrivateRoute exact path='/' component={Dashboard} />
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
                 </Switch>
