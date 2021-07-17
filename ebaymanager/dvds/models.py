@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Dvd(models.Model):
     barcode = models.DecimalField(max_digits=20, decimal_places=0, unique=True)
