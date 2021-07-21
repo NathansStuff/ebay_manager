@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getDvds, deleteDvd } from '../../actions/dvds';
+import DvdCard from './DvdCard';
 
 export class Dvds extends Component {
   static propTypes = {
@@ -18,33 +19,10 @@ export class Dvds extends Component {
     return (
       <Fragment>
         <h2>Dvds List</h2>
-        <table className='table table-striped'>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Barcode</th>
-              <th>Title</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.dvds.map(dvd => (
-              <tr key={dvd.id}>
-                <td>{dvd.id}</td>
-                <td>{dvd.barcode}</td>
-                <td>{dvd.title}</td>
-                <td>
-                  <button
-                    onClick={this.props.deleteDvd.bind(this, dvd.id)}
-                    className='btn btn-danger btn-sm'
-                  >
-                    DELETE
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+        {this.props.dvds.map(dvd => (
+          <DvdCard key={dvd.id} dvd={dvd} deleteDvd={this.props.deleteDvd} />
+        ))}
       </Fragment>
     );
   }

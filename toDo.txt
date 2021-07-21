@@ -1,5 +1,4 @@
 // show dvds
-Change DVD Model
 Make static finished DVD Card
 DVD show
 DVD update
