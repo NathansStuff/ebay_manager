@@ -1,8 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getDvds, deleteDvd } from '../../actions/dvds';
-
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,6 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles({
   root: {
@@ -28,28 +28,39 @@ export default function DvdCard(props) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
+        <Typography gutterBottom variant='h5' component='h2' align='center'>
+          {title}
+        </Typography>
         <CardMedia className={classes.media} image={imageUrl} />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='h2'>
-            {title}
-          </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+          <List>
+            <Divider />
+            <ListItem>
+              <ListItemText align='left'>Cex Buy</ListItemText>
+              <ListItemText align='right'>{cexBuy}</ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemText align='left'>Cex Sell</ListItemText>
+              <ListItemText align='right'>{cexSell}</ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemText align='left'>Cex Trade</ListItemText>
+              <ListItemText align='right'>{cexTrade}</ListItemText>
+            </ListItem>
+          </List>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size='small' color='primary'>
-          Share
-        </Button>
-        <button
-          onClick={props.deleteDvd.bind(this, dvd.id)}
-          className='btn btn-danger btn-sm'
-        >
-          DELETE
-        </button>
-      </CardActions>
     </Card>
   );
 }
+
+// <CardActions>
+// <button
+//   onClick={props.deleteDvd.bind(this, id)}
+//   className='btn btn-danger btn-sm'
+// >
+//   DELETE
+// </button>
+// </CardActions>
