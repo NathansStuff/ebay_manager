@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import { Redirect } from 'react-router';
 
 export class Login extends Component {
   state = {
@@ -27,7 +28,7 @@ export class Login extends Component {
     if (this.props.isAuthenticated) {
       return <Redirect to='/' />;
     }
-    
+
     const { username, password } = this.state;
     return (
       <div className='col-md-5 md-auto'>

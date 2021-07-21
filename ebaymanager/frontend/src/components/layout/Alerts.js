@@ -22,6 +22,9 @@ export class Alerts extends Component {
       // Login
       if (error.msg.non_field_errors)
         alert.error(error.msg.non_field_errors.join());
+      // Register
+      if (error.msg.username)
+        alert.error(error.msg.username.join());
     }
 
     // MESSAGES
@@ -29,6 +32,8 @@ export class Alerts extends Component {
       // DVD Items
       if (message.dvdDeleted) alert.success(message.dvdDeleted);
       if (message.dvdAdded) alert.success(message.dvdAdded);
+      // Register passwords
+      if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
     }
   }
   render() {

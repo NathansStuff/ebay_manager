@@ -8,6 +8,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS
 } from './types';
 
 // CHECK TOKEN & LOAD USER
@@ -84,7 +86,7 @@ export const tokenConfig = getState => {
   // HEADERS
   const config = {
     headers: {
-      'Content-Type': 'application.json',
+      'Content-Type': 'application/json',
     },
   };
 
@@ -93,4 +95,33 @@ export const tokenConfig = getState => {
     config.headers['Authorization'] = `Token ${token}`;
   }
   return config;
+};
+
+// REGISTER USER
+export const register = ({username, password, email}) => dispatch => {
+  // HEADERS
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  // Request Body
+  const body = JSON.stringify({ username, password, email });
+
+  // Yeet it to backend
+  axios
+    .post('api/auth/register', body, config)
+    .then(res => {
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+    });
 };
