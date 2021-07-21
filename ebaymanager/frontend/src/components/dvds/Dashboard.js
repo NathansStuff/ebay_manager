@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import Form from './form';
+import DvdForm from './DvdForm';
 import Dvds from './Dvds';
 export default function Dashboard() {
   return (
     <Fragment>
-      <Form />
+      <DvdForm />
       <Dvds />
     </Fragment>
   );

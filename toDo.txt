@@ -1,6 +1,6 @@
 // show dvds
-Make static finished DVD Card
-DVD show
+DVD show private route
+DVD show page
 DVD update
 DVD delete
 
