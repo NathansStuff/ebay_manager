@@ -1,0 +1,25 @@
+// show dvds
+Change DVD Model
+Make static finished DVD Card
+DVD show
+DVD update
+DVD delete
+
+// DVD creation
+?? DVD model with extra url field
+DVD card for acceptance/approval to main db
+Edit dvd card
+Submit dvd, delete from temp db
+All dvd creations from db waiting for approval
+
+// CREATION PROCESS
+Search => Scrape => Temp db => Manual approval/edit => Main db
+
+// Working prototype
+Link to scraper
+
+// Later GUI
+Loading dvd card
+In queue DVD
+GUI for searching barcodes
+GUI for results including in main db, in queue db, in temp db

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'dvds',
     'frontend',
     'accounts',
+    'timestampmixin',
 ]
 
 REST_FRAMEWORK = {
