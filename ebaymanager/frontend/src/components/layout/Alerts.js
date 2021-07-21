@@ -11,13 +11,22 @@ export class Alerts extends Component {
 
   componentDidUpdate(prevProps) {
     const { error, alert, message } = this.props;
+
+    // ERRORS
     if (error !== prevProps.error) {
+      // Barcode
       if (error.msg.barcode)
         alert.error(`Barcode: ${error.msg.barcode.join()}`);
+      // Title
       if (error.msg.title) alert.error(`Title: ${error.msg.title.join()}`);
+      // Login
+      if (error.msg.non_field_errors)
+        alert.error(error.msg.non_field_errors.join());
     }
 
+    // MESSAGES
     if (message !== prevProps.message) {
+      // DVD Items
       if (message.dvdDeleted) alert.success(message.dvdDeleted);
       if (message.dvdAdded) alert.success(message.dvdAdded);
     }
