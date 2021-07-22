@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_DVDS, DELETE_DVD, ADD_DVD } from './types';
+import { GET_DVDS, DELETE_DVD, ADD_DVD, GET_SINGLE_DVD } from './types';
 import { createMessage, returnErrors } from './messages';
 import { tokenConfig } from './auth';
 

@@ -1,7 +1,13 @@
-import { GET_DVDS, DELETE_DVD, ADD_DVD } from '../actions/types.js';
+import {
+  GET_DVDS,
+  DELETE_DVD,
+  ADD_DVD,
+  GET_SINGLE_DVD,
+} from '../actions/types.js';
 
 const initalState = {
   dvds: [],
+  getSingleDvd: []
 };
 
 export default function (state = initalState, action) {
@@ -10,6 +16,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         dvds: action.payload,
+      };
+
+    case GET_SINGLE_DVD:
+      return {
+        ...state,
+        getSingleDvd: action.payload,
       };
 
     case DELETE_DVD:

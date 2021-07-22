@@ -44,15 +44,15 @@ class App extends Component {
               <div className='container'>
                 <Switch>
                   <PrivateRoute exact path='/' component={Dashboard} />
-                  <Route
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                  <PrivateRoute
                     path='/:id'
                     component={props => (
                       <Show id={props.match.params.id} />
                     )}
                   />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
-                </Switch>
+                  </Switch>
               </div>
             </Fragment>
           </Router>

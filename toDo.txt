@@ -1,6 +1,5 @@
 // show dvds
-DVD show private route
-DVD show page
+DVD show page 
 DVD update
 DVD delete
 
@@ -22,3 +21,6 @@ Loading dvd card
 In queue DVD
 GUI for searching barcodes
 GUI for results including in main db, in queue db, in temp db
+
+// Nice But Never Required
+Private route for show page => probably history.push 
